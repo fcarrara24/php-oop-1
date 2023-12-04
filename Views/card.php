@@ -1,5 +1,5 @@
-<div class="col-12 col-md-4 col-lg-3">
-    <div class="card">
+<div class="col-12 col-md-4 col-lg-3 flex-grow-1 pb-4">
+    <div class="card h-100">
         <img src="<?= $data["poster_path"] ?>" class="card-img-top my-ratio" alt="<?= $data["title"] ?>">
         <div class="card-body">
             <h5 class="card-title">
@@ -12,7 +12,8 @@
                 <?= $data["original_language"] ?>
                 <div>
                     <small>
-                        <?= $data["title"] ?>
+                        <img src="<?= "https://flagsapi.com/" . ($data["original_language"] == "en" ? "GB" : strtoupper(substr($data["original_language"], 0, 2))) . "/flat/64.png" ?>"
+                            alt="" srcset="">
                     </small>
                 </div>
             </div>
