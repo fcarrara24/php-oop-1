@@ -6,18 +6,23 @@
                 <?= $data["title"] ?>
             </h5>
             <p class="card-text">
-                <?= $data["vote_average"] ?>
+                <?= substr($data["overview"], 0, 100) . '...' ?>
             </p>
-            <div class="d-flex justify-content-between align-items-flex-start">
-                <?php for ($i = 0; $i < floor($data["vote_average"] / 2); $i++) {
-                    echo "<i class=\"fa-solid fa-star\"></i>";
+            <div class="d-flex justify-content-between align-items-flex-center flex-nowrap ">
+                <?php for ($i = 0; $i < 5; $i++) { ?>
+                    <i
+                        class=" fa-star d-flex flex-column justify-content-center  <?= ($i < floor($data["vote_average"] / 2) ? "fa-solid" : "fa-regular") ?>"></i>
+                    <?php
                 } ?>
                 <div>
-                    <small>
+                    <small style="max-width: 50px; height: auto;">
                         <img src="<?= "https://flagsapi.com/" . ($data["original_language"] == "en" ? "GB" : strtoupper(substr($data["original_language"], 0, 2))) . "/flat/64.png" ?>"
                             alt="" srcset="">
                     </small>
                 </div>
+            </div>
+            <div>
+                <?php include __DIR__ . "/../Control/Genre.php" ?>
             </div>
         </div>
     </div>
