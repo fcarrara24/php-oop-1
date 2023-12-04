@@ -9,7 +9,9 @@
                 <?= $data["vote_average"] ?>
             </p>
             <div class="d-flex justify-content-between align-items-flex-start">
-                <?= $data["original_language"] ?>
+                <?php for ($i = 0; $i < floor($data["vote_average"] / 2); $i++) {
+                    echo "<i class=\"fa-solid fa-star\"></i>";
+                } ?>
                 <div>
                     <small>
                         <img src="<?= "https://flagsapi.com/" . ($data["original_language"] == "en" ? "GB" : strtoupper(substr($data["original_language"], 0, 2))) . "/flat/64.png" ?>"
